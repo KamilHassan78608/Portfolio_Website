@@ -31,7 +31,9 @@ const TechStack = () => {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
             {
               iconsStack.map((Icon)=>(
+                <RevealOnScroll>
                 <TitleCard item={Icon} />
+                </RevealOnScroll>
               ))
             }
           </div>
