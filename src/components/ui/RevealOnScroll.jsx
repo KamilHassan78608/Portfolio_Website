@@ -9,8 +9,8 @@ const RevealOnScroll = ({children, delay = 0}) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if(entry.isIntersecting){
-          setisVisible(true)/
-          observer.unobserve(ref.current)
+          setisVisible(true);
+          observer.unobserve(ref.current);
         }
       },
       { threshold: 0.15}

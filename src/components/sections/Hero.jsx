@@ -19,12 +19,13 @@ const Hero = () => {
             System Online // V.2.0.24
           </div>
 
-          <h1 className='text-5xl md:text-7xl font-black tracking-tighter mb-6 text-white/40 leading-[0.9] min-h-[160px] md:min-h-[280px] flex flex-col justify-center items-center'>
+          <h1 className='text-3xl md:text-7xl font-black tracking-tighter mb-0 text-white/40 leading-[0.9] min-h-40 md:min-h-[280px] flex flex-col justify-center items-center'>
             <HackerEffect
               text="KAMIL HASSAN"
               speed={80}
               className=""
             />
+
             
             <TypeAnimation
               sequence={[
@@ -32,27 +33,29 @@ const Hero = () => {
                 1000,
                 "React & Tailwind Expert",
                 1000,
-                "Professional in Frontend",
+                "Professional Frontend",
                 1000,
               ]}
               speed={50}
               repeat={Infinity}
-              className="text-4xl md:text-8xl bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-600 text-transparent bg-clip-text text-glow font-bold mt-2"
+              className="text-2xl mb-0 md:text-8xl bg-linear-to-r from-cyan-400 via-blue-400 to-purple-600 text-transparent bg-clip-text text-glow font-bold mt-2"
             />
           </h1>
         </RevealOnScroll>
 
         <RevealOnScroll delay={200}>
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
             <span className="text-cyan-500 font-mono text-sm mr-2">&gt;</span>
             Passionate MERN Stack Developer building scalable web applications with MongoDB, Express, React, and Node.js for seamless, high-performance user experiences
           </p>
-        </RevealOnScroll>
+
 
         <div className='flex justify-center items-center gap-10'>
           <Button data="View Project" Property="!bg-cyan-500 !text-black hover:!bg-white/5 hover:!text-cyan-400" />
           <Button data="Hire me!" />
-        </div>
+        </div> 
+        </RevealOnScroll>
+
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 flex flex-col items-center gap-2">
           <span className="text-[10px] font-mono tracking-widest uppercase opacity-50">Scroll</span>

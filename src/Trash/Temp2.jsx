@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 /* --- UTILITY: TEXT SCRAMBLE HOOK --- */
-const useScrambleText = (text, speed = 30) => {
+const useScrambleText = (text, speed = 30) => {``
   const [displayedText, setDisplayedText] = useState(text);
 
   useEffect(() => {
