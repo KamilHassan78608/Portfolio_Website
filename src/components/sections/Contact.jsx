@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, Icon, Send } from 'lucide-react'
 const Contact = () => {
   return (
     <section id="contact" className="py-32 relative z-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent to-cyan-900/10 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-6 relative">
         <RevealOnScroll>
