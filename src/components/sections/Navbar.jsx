@@ -1,5 +1,5 @@
 import { Menu, Terminal, X } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../ui/Button';
 
 const Navbar = () => {
@@ -8,18 +8,52 @@ const Navbar = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
 
   const NavLinks = [
-    { name: 'Home', link: '/home' },
-    { name: 'Home', link: '/home' },
-    { name: 'Home', link: '/home' },
-    { name: 'Home', link: '/home' },
-    { name: 'Home', link: '/home' },
+    { name: 'Home', link: '#home' },
+    { name: 'Skills', link: '#skills' },
+    { name: 'Projects', link: '#projects' },
+    { name: 'Education', link: '#education' },
+    { name: 'Contact', link: '#contact' },
   ];
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+
+      setisMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+
+    const handleScroll = async () => {
+      if (window.scrollY > 50) {
+        setscrolled(true)
+      } else {
+        setscrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 border-b border-transparent ${scrolled ? 'bg-black/80 backdrop-blur-md border-white/10 py-4 shadow-[0_0_20px_rgba(0,0,0,0.5)]' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-        <div className="flex items-center gap-2 group cursor-pointer">
+        <div className="flex items-center gap-2 group cursor-pointer" onClick={(e) => handleSmoothScroll(e, '#home')}>
           <div className="w-10 h-10 bg-linear-to-tr from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-300">
             <Terminal className="text-white w-6 h-6 transform group-hover:-rotate-45 transition-transform duration-300" />
           </div>
@@ -33,7 +67,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.link}
-              // onClick={(e) => handleSmoothScroll(e, link.link)}
+              onClick={(e) => handleSmoothScroll(e, link.link)}
               className="cursor-pointer text-xs font-mono text-slate-400 hover:text-cyan-400 transition-colors uppercase tracking-[0.2em] relative group"
             >
               <span className="opacity-0 group-hover:opacity-100 absolute -left-4 text-cyan-500 transition-opacity">&gt;</span>
@@ -41,11 +75,12 @@ const Navbar = () => {
             </a>
           ))}
 
-          <Button
-            data="Init Project"
-            href="#"
-            Property="bg-red-600 text-white border-red-500 hover:bg-red-700 hover:shadow-red-500/50"
-          />
+          <div onClick={(e) => handleSmoothScroll(e, '#contact')}>
+            <Button
+              data="Init Project"
+              Property="bg-red-600 text-white border-red-500 hover:bg-red-700 hover:shadow-red-500/50"
+            />
+          </div>
         </div>
 
 
@@ -58,7 +93,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-black border-b border-white/10 p-6 md:hidden flex flex-col gap-6 shadow-2xl z-50">
           {NavLinks.map((link) => (
-            <a key={link.name} href={link.link}  className="text-xl font-bold text-slate-300 font-mono hover:text-cyan-400 transition-colors">
+            <a key={link.name} onClick={(e) => handleSmoothScroll(e, link.link)} className="text-xl font-bold text-slate-300 font-mono hover:text-cyan-400 transition-colors">
               {link.name}
             </a>
           ))}

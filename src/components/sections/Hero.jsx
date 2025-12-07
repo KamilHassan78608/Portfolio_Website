@@ -6,8 +6,24 @@ import { ChevronDown } from 'lucide-react'
 import Button from '../ui/Button'
 
 const Hero = () => {
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className='min-h-screen flex justify-center items-center pt-20 relative overflow-hidden'>
+    <section id='home' className='min-h-screen flex justify-center items-center pt-20 relative overflow-hidden'>
 
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-700/40 rounded-full blur-[128px] animate-pulse"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-600/40 rounded-full blur-[128px] animate-pulse delay-1000"></div>
@@ -51,13 +67,13 @@ const Hero = () => {
 
 
         <div className='flex justify-center items-center gap-10'>
-          <Button data="View Project" Property="!bg-cyan-500 !text-black hover:!bg-white/5 hover:!text-cyan-400" />
-          <Button data="Hire me!" />
+          <div onClick={(e) => handleSmoothScroll(e, '#projects')}><Button data="View Project" Property="!bg-cyan-500 !text-black hover:!bg-white/5 hover:!text-cyan-400" /></div>
+          <div onClick={(e) => handleSmoothScroll(e, '#contact')}><Button data="Hire me!"/></div>
         </div> 
         </RevealOnScroll>
 
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 flex flex-col items-center gap-2">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 flex flex-col items-center gap-2 cursor-pointer" onClick={(e) => handleSmoothScroll(e, '#skills')}>
           <span className="text-[10px] font-mono tracking-widest uppercase opacity-50">Scroll</span>
           <ChevronDown size={20} />
         </div>

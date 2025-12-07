@@ -18,7 +18,7 @@ const TechStack = () => {
 
   return (
     <div>
-      <section className='py-24 bg-black relative z-20'>
+      <section id='skills' className='py-24 bg-black relative z-20'>
         <div className='max-w-7xl mx-auto px-6'>
           <RevealOnScroll>
             <div className='flex items-center gap-4 mb-16'>

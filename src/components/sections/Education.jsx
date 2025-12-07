@@ -5,13 +5,13 @@ import EducationCard from '../ui/EducationCard'
 const Education = () => {
 
   const education = [
-    { year: "2023 - PRESENT", role: "Senior Engineer", company: "CyberSystems Inc.", desc: "Leading microservices architecture migration." },
-    { year: "2021 - 2023", role: "Frontend Developer", company: "Neon Creative", desc: "Implemented WebGL interfaces for clients." },
-    { year: "2017 - 2021", role: "B.S. Computer Science", company: "Tech University", desc: "Specialized in AI & Data Structures." },
+    { year: "2021 - 2023", role: "Frontend Developer", company: "Freelancer", desc: "Converting Figma Designs and making Frontend." },
+    { year: "2023 - PRESENT", role: "MERN stack Developer", company: "Freelancer", desc: "Building real time Projects." },
+    { year: "2024 - PRESENT", role: "B.S. Computer Science", company: "UET Peshawar", desc: "Completing my degree." },
   ]
 
   return (
-    <section className="py-24 bg-black relative z-20">
+    <section id='education' className="py-24 bg-black relative z-20">
 
       <div className="max-w-4xl mx-auto px-6">
 
